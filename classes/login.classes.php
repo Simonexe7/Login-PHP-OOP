@@ -4,7 +4,6 @@ class Login extends Dbh
     protected function getUser($email, $pwd)
     {
         $stmt = $this->connect()->prepare("SELECT users_pwd FROM users WHERE users_email = ?");
-        var_dump($stmt);
 
         if (!$stmt->execute(array($email))) {
             $stmt = NULL;
@@ -20,7 +19,7 @@ class Login extends Dbh
         }
 
         $checkPwd = password_verify($pwd, $pwdHashed[0]["users_pwd"]);
-        var_dump($checkPwd);
+        
         if ($checkPwd == false) {
             $stmt = NULL;
             header("location: ../index.php?error=wrongpassword");

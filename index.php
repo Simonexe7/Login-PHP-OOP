@@ -96,6 +96,9 @@ session_start();
                 <?php } else { ?>
                     <strong>Email : None</strong>
                 <?php } ?>
+                <form action="includes/logout.inc.php" method="POST">
+                    <button class="btn btn-primary w-100 py-2 mt-3" type="submit" name="logout">Log out</button>
+                </form>
             </div>
         </div>
         <form action="includes/login.inc.php" method="POST">
